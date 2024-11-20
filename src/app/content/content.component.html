@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="filter-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        [(ngModel)]="searchQuery"
+        placeholder="Search by title"
+        (ngModelChange)="onFilterChange('search', $event)"
+      />
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="filterType" (selectionChange)="onFilterChange('type', $event.value)">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="Movie">Movies</mat-option>
+        <mat-option value="TV Show">Shows</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+<!-- <div *ngIf="isLoading" class="loading">Loading...</div> -->
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Director</th>
+        <th>Cast</th>
+        <th>Country</th>
+        <th>Release Year</th>
+        <th>Rating</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of netflixData">
+        <td>{{ item.title }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.director }}</td>
+        <td>{{ item.cast }}</td>
+        <td>{{ item.country }}</td>
+        <td>{{ item.release_year }}</td>
+        <td>{{ item.rating }}</td>
+        <td><button mat-icon-button (click)="viewDetails(item)">
+          <mat-icon>visibility</mat-icon>
+        </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="pagination-controls">
+  <button mat-button (click)="goToPreviousPage()" [disabled]="!previousPageUrl">Previous</button>
+  <button mat-button (click)="goToNextPage()" [disabled]="!nextPageUrl">Next</button>
+</div>
+
