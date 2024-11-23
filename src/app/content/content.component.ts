@@ -11,6 +11,8 @@ import { LoaderService } from '../services/loader.service';
 import { HeaderComponent } from '../components/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ContentdetailService } from '../services/contentdetail.service';
+import { ContentdetailsComponent } from '../components/contentdetails/contentdetails.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-content',
   standalone: true,
@@ -34,7 +36,7 @@ export class ContentComponent {
   nextPageUrl: string | null = null;
   previousPageUrl: string | null = null;
 
-  constructor(private apiService: ApiService , private router : Router , private route : ActivatedRoute , private loaderService : LoaderService , private contentDetails : ContentdetailService) { }
+  constructor(private apiService: ApiService , private router : Router , private route : ActivatedRoute , private loaderService : LoaderService , private contentDetails : ContentdetailService , private dialog : MatDialog) { }
 
   ngOnInit(): void {
     
@@ -178,10 +180,11 @@ export class ContentComponent {
   viewDetails(item : any){
     console.log(item , ';item')
     this.contentDetails.setContent(item)
-    this.router.navigate(['/detail']);
+    this.dialog.open(ContentdetailsComponent , {
+      data : item
+    })
 
   }
-
   goToNextPage() {
     if (this.nextPageUrl) {
       this.updateQueryParams(this.currentPage + 1);

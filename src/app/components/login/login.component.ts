@@ -45,16 +45,17 @@ export class LoginComponent {
           console.log(data)
           localStorage.setItem('authToken' , data.data.token)
           localStorage.setItem('user' , data.data.user)
+          this.loaderService.hide()
           this.router.navigate(['/content'])
         },
         (error) => {
           this.error = error;
+          this.loaderService.hide()
         }
       );
     } else {
       console.log('Form is invalid');
     }
-    this.loaderService.hide()
   }
 
 }

@@ -36,6 +36,7 @@ export class RegisterComponent {
   error = ''
 
   onSubmit(): void {
+    this.loaderService.show()
     if (this.registerForm.valid) {
       console.log('Registration successful', this.registerForm.value);
       this.apiService.register(this.registerForm.value).subscribe(
@@ -43,12 +44,18 @@ export class RegisterComponent {
           // this.netflixData = data.results;
           if(data.status == "success"){
             this.router.navigate(['/login'])
+            this.loaderService.hide()
+
           }else{
             console.log('error' , data.data)
+            this.loaderService.hide()
+
           }
         },
         (error) => {
           this.error = error;
+          this.loaderService.hide()
+
         }
       );
     } else {

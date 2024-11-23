@@ -1,22 +1,146 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-  }
-  
-  .login-card {
-    width: 400px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-field {
-    width: 100%;
-    margin-bottom: 16px;
-  }
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #eaf6f6;
+}
 
-  mat-card-title{
-    margin-bottom:15px;
-  }
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.welcome-section {
+  width: 50%;
+  background: linear-gradient(135deg, #26a69a, #2bbbad);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sign-up-button {
+  background: #fff;
+  color: #26a69a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sign-up-button:hover {
+  background: #2bbbad;
+  color: #fff;
+}
+
+.form-section {
+  width: 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2bbbad;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.mat-form-field {
+  background: #f7f7f7;
+  border-radius: 5px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #4a90e2;
+}
+
+.mat-form-field-label {
+  color: #7f8c8d !important;
+}
+
+.mat-input-element {
+  color: #333;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: #fff !important;
+  color: #2bbbad !important;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;  
+  cursor: pointer !important;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #26a69a !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+.register-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.register-link {
+  color: #26a69a;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #2bbbad;
+}

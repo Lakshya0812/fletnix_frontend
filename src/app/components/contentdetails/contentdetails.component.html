@@ -1,21 +1,28 @@
-<div class="movie-details-container">
-    <h2 class="movie-title">{{ movie.title }}</h2>
-    <p class="movie-type">Type: <strong>{{ movie.type }}</strong></p>
-  
-    <div class="movie-details-grid">
+<div class="item-details-dialog">
+  <div class="dialog-header">
+    <h2 class="dialog-title">{{ movie.title }}</h2>
+    <p class="dialog-type">{{ movie.type }}</p>
+  </div>
+  <mat-dialog-content class="dialog-content">
+    <div class="details-grid">
       <div>
         <p><strong>Director:</strong> {{ movie.director || 'N/A' }}</p>
         <p><strong>Cast:</strong> {{ movie.cast || 'N/A' }}</p>
         <p><strong>Country:</strong> {{ movie.country || 'N/A' }}</p>
         <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
-        <p><strong>Added On:</strong> {{ movie.date_added }}</p>
       </div>
       <div>
         <p><strong>Rating:</strong> {{ movie.rating }}</p>
         <p><strong>Duration:</strong> {{ movie.duration }}</p>
         <p><strong>Category:</strong> {{ movie.listed_in }}</p>
-        <p><strong>Description:</strong></p>
-        <p class="movie-description">{{ movie.description }}</p>
       </div>
     </div>
-  </div>
+    <div class="description">
+      <p><strong>Description:</strong></p>
+      <p class="movie-description">{{ movie.description || 'No description available' }}</p>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>
